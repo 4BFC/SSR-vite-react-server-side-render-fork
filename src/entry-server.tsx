@@ -1,14 +1,20 @@
-// Libraries imports
 import React from 'react'
 import ReactDOMServer from 'react-dom/server' // Server-side rendering module from react-dom library.
-// import StaticRouter library here
+import { StaticRouter } from 'react-router-dom/server'
+import { Router } from './Router'
+import Error from './components/Hydration'
 
-// App level imports
-// import local Router file here
+export const render = (url: string, statusCode: number) => {
+  if (statusCode) {
+    return ReactDOMServer.renderToString(<Error statusCode={statusCode} />)
+  }
 
-export function render() {
   const html = ReactDOMServer.renderToString(
-    <React.StrictMode>{/* Static Router goes here */}</React.StrictMode>
+    <React.StrictMode>
+      <StaticRouter location={url}>
+        <Router />
+      </StaticRouter>
+    </React.StrictMode>
   )
   return { html }
 }

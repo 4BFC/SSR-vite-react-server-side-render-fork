@@ -1,13 +1,15 @@
-// Libraries imports
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import BrowserRouter library here
+import { BrowserRouter } from 'react-router-dom'
 
-// App level imports
-// import Router setup file here
+import { Router } from './Router'
 import './index.css'
 
 ReactDOM.hydrateRoot(
   document.getElementById('root') as HTMLElement,
-  <React.StrictMode>{/* <Router /> goes here */}</React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  </React.StrictMode>
 )
