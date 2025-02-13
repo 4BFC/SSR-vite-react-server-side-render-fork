@@ -1,20 +1,10 @@
-import { JSX, useEffect, useState } from 'react'
+import Hydration from '../../components/BaseLayout'
 
-export const Home = (): JSX.Element => {
-  const [isHydrated, setHydrated] = useState(false)
-
-  useEffect(() => {
-    setHydrated(true)
-  })
-
-  if (!isHydrated) {
-    return <h1>No match Hydrate</h1>
-  }
-
+export const Home = () => {
   return (
-    <div>
+    <Hydration>
       <h3>Home</h3>
       Home, sweet home 🏠.
-    </div>
+    </Hydration>
   )
 }
